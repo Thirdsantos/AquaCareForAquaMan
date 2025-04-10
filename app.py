@@ -37,6 +37,11 @@ refNotif = db.reference("Notifications")
 def index():
     return "AQUACARE THE BRIDGE BETWEEN THE GAPS"
 
+# Add a health check route
+@app.route("/health")
+def health_check():
+    return "OK", 200  # Responds with a 200 OK
+
 async def handle_websocket(websocket, path):
     await websocket.send(json.dumps({"message": "✅ You're now connected to the WebSocket server"}))
 
